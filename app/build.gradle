@@ -46,10 +46,8 @@ dependencies {
     implementation Dependencies.CORE_KTX
     implementation Dependencies.CONSTRAINT_LAYOUT
 
-    // Glide
     implementation Dependencies.GLIDE
 
-    // fragment ktx
     implementation Dependencies.FRAGMENT_KTX
 
     implementation Dependencies.HILT_ANDROID
@@ -61,8 +59,7 @@ dependencies {
     implementation NetworkDependencies.RXJAVA_ADAPTER
     implementation NetworkDependencies.CONVERTER_GSON
     implementation NetworkDependencies.LOGGING_INTERCEPTOR
-
-    // rxJava
+    
     implementation Dependencies.RXJAVA
     implementation Dependencies.RX_ANDROID
     implementation Dependencies.RX_KOTLIN
