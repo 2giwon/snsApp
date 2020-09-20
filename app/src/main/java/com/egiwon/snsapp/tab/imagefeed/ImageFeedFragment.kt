@@ -1,9 +1,15 @@
 package com.egiwon.snsapp.tab.imagefeed
 
+import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
+import com.egiwon.snsapp.BR
 import com.egiwon.snsapp.R
 import com.egiwon.snsapp.base.BaseFragment
+import com.egiwon.snsapp.base.BasePagedAdapter
 import com.egiwon.snsapp.databinding.FragmentImageFeedBinding
+import com.egiwon.snsapp.tab.imagefeed.model.Card
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -13,4 +19,32 @@ class ImageFeedFragment : BaseFragment<FragmentImageFeedBinding, ImageFeedViewMo
 
     override val viewModel: ImageFeedViewModel by viewModels()
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        with(binding) {
+            vm = viewModel
+            initAdapter()
+        }
+
+        viewModel.getImageFeed()
+    }
+
+    private fun FragmentImageFeedBinding.initAdapter() {
+        rvImageFeed.run {
+            adapter = object : BasePagedAdapter<Card>(
+                R.layout.item_card,
+                BR.card,
+                mapOf(BR.vm to viewModel)
+            ) {}
+            setHasFixedSize(true)
+            addItemDecoration(
+                DividerItemDecoration(
+                    requireContext(),
+                    DividerItemDecoration.VERTICAL
+                )
+            )
+        }
+
+    }
 }

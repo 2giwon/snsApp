@@ -23,6 +23,7 @@ object Dependencies {
     private const val HILT_JETPACK_VER = "1.0.0-alpha01"
     private const val GLIDE_VER = "4.11.0"
     private const val RXJAVA_VER = "2.2.16"
+    private const val PAGING_VER = "2.1.1"
 
     const val KOTLIN_STDLIB = "org.jetbrains.kotlin:kotlin-stdlib:${Version.KOTLIN}"
 
@@ -47,6 +48,9 @@ object Dependencies {
     const val ACTIVITY_KTX = "androidx.activity:activity-ktx:1.1.0"
 
     const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:1.2.5"
+
+    const val PAGING = "androidx.paging:paging-runtime:$PAGING_VER"
+    const val PAGING_RXJAVA = "androidx.paging:paging-rxjava2:$PAGING_VER"
 
     const val GLIDE = "com.github.bumptech.glide:glide:$GLIDE_VER"
     const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:$GLIDE_VER"

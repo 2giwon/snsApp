@@ -65,6 +65,9 @@ dependencies {
     implementation Dependencies.RX_KOTLIN
     implementation Dependencies.RX_BINDING
 
+    implementation Dependencies.PAGING
+    implementation Dependencies.PAGING_RXJAVA
+
     testImplementation TestDependencies.JUNIT
     androidTestImplementation TestDependencies.EXT_JUNIT
     androidTestImplementation TestDependencies.ESPRESSO

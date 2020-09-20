@@ -2,9 +2,22 @@ package com.egiwon.snsapp.ext
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.paging.PagedList
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.egiwon.snsapp.base.BaseAdapter
+import com.egiwon.snsapp.base.BasePagedAdapter
+import com.egiwon.snsapp.tab.imagefeed.model.Card
+
+@Suppress("UNCHECKED_CAST")
+@BindingAdapter("bind:replacePagedItems")
+fun RecyclerView.replacePagedItems(items: PagedList<Card>?) {
+    if (items != null) {
+        (adapter as? BasePagedAdapter<Card>)?.run {
+            this.replacePagedItems(items)
+        }
+    }
+}
 
 @Suppress("UNCHECKED_CAST")
 @BindingAdapter("bind:replaceItem")
