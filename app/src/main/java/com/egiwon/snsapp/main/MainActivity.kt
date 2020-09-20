@@ -1,11 +1,12 @@
-package com.egiwon.snsapp.ui
+package com.egiwon.snsapp.main
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.fragment.app.commit
 import com.egiwon.snsapp.R
 import com.egiwon.snsapp.base.BaseActivity
 import com.egiwon.snsapp.databinding.ActivityMainBinding
-import com.google.android.material.tabs.TabLayoutMediator
+import com.egiwon.snsapp.tab.TabFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,20 +17,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initViewPager()
-    }
 
-    private fun initViewPager() {
-        val tabTitles =
-            listOf(getString(R.string.tab_home_title), getString(R.string.tab_image_feed_title))
-
-        with(binding) {
-            vpContent.adapter = PagerAdapter(this@MainActivity)
-            TabLayoutMediator(tlContent, vpContent) { tab, position ->
-                tab.text = tabTitles[position]
-            }.attach()
+        supportFragmentManager.commit(allowStateLoss = true) {
+            val fragment = TabFragment()
+            replace(R.id.fragment_holder, fragment, TabFragment::class.java.name)
         }
-
     }
 
 
