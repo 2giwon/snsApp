@@ -2,12 +2,15 @@ package com.egiwon.snsapp.tab.home
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.egiwon.snsapp.BR
+import com.egiwon.snsapp.EventObserver
 import com.egiwon.snsapp.R
 import com.egiwon.snsapp.base.BaseAdapter
 import com.egiwon.snsapp.base.BaseFragment
 import com.egiwon.snsapp.databinding.FragmentHomeBinding
+import com.egiwon.snsapp.main.MainViewModel
 import com.egiwon.snsapp.tab.home.model.User
 import com.egiwon.snsapp.tab.imagefeed.model.Card
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,6 +22,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
 
     override val viewModel: HomeViewModel by viewModels()
 
+    private val sharedViewModel: MainViewModel by activityViewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -28,6 +33,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
         }
 
         viewModel.getHomeContents()
+        setupObserve()
+    }
+
+    override fun setupObserve() {
+        super.setupObserve()
+        viewModel.selectedItem.observe(viewLifecycleOwner, EventObserver {
+            sharedViewModel.setSelectedItem(it)
+        })
     }
 
     private fun FragmentHomeBinding.initAdapter() {

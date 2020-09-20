@@ -3,9 +3,10 @@ package com.egiwon.snsapp.tab.home
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.egiwon.snsapp.Event
 import com.egiwon.snsapp.R
 import com.egiwon.snsapp.base.BaseViewModel
-import com.egiwon.snsapp.data.content.ContentRepository
+import com.egiwon.snsapp.data.ContentRepository
 import com.egiwon.snsapp.data.entity.CardItem
 import com.egiwon.snsapp.data.entity.UserItem
 import com.egiwon.snsapp.tab.home.model.HomeContent
@@ -28,6 +29,9 @@ class HomeViewModel @ViewModelInject constructor(
     private val _userContents = MutableLiveData<List<User>>()
     val userContents: LiveData<List<User>> get() = _userContents
 
+    private val _selectedItem = MutableLiveData<Event<Any>>()
+    val selectedItem: LiveData<Event<Any>> get() = _selectedItem
+
     fun getHomeContents() {
         repository.getHomeContent()
             .subscribeOn(Schedulers.io())
@@ -47,5 +51,11 @@ class HomeViewModel @ViewModelInject constructor(
                     toastMessageMutableLiveData.value = R.string.error_load_home_content
                 }
             ).addTo(compositeDisposable)
+    }
+
+    override fun onClick(model: Any?) {
+        if (model != null) {
+            _selectedItem.value = Event(model)
+        }
     }
 }

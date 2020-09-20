@@ -1,4 +1,4 @@
-package com.egiwon.snsapp.data.auth
+package com.egiwon.snsapp.data
 
 import com.egiwon.snsapp.data.auth.model.AuthRequestData
 import com.egiwon.snsapp.data.entity.AuthResponse

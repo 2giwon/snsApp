@@ -1,10 +1,10 @@
 package com.egiwon.snsapp.di
 
+import com.egiwon.snsapp.data.AuthRepository
+import com.egiwon.snsapp.data.ContentRepository
 import com.egiwon.snsapp.data.auth.AuthDataSource
-import com.egiwon.snsapp.data.auth.AuthRepository
 import com.egiwon.snsapp.data.auth.AuthRepositoryImpl
 import com.egiwon.snsapp.data.content.ContentDataSource
-import com.egiwon.snsapp.data.content.ContentRepository
 import com.egiwon.snsapp.data.content.ContentRepositoryImpl
 import dagger.Module
 import dagger.Provides

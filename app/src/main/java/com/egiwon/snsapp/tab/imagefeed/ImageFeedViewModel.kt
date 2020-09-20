@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.paging.PagedList
 import com.egiwon.snsapp.R
 import com.egiwon.snsapp.base.BaseViewModel
-import com.egiwon.snsapp.data.content.ContentRepository
+import com.egiwon.snsapp.data.ContentRepository
 import com.egiwon.snsapp.tab.imagefeed.model.Card
 
 class ImageFeedViewModel @ViewModelInject constructor(

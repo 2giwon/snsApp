@@ -18,6 +18,9 @@ class MainViewModel @ViewModelInject constructor() : BaseViewModel() {
     private val _loginAuth = MutableLiveData<UserAuth>()
     val loginAuth: LiveData<UserAuth> get() = _loginAuth
 
+    private val _selectedItem = MutableLiveData<Event<Any>>()
+    val selectedItem: LiveData<Event<Any>> get() = _selectedItem
+
     fun requestShowLoginFragment() {
         _showLogin.value = Event(Unit)
     }
@@ -28,5 +31,9 @@ class MainViewModel @ViewModelInject constructor() : BaseViewModel() {
 
     fun setLoginAuth(auth: UserAuth) {
         _loginAuth.value = auth
+    }
+
+    fun setSelectedItem(item: Any) {
+        _selectedItem.value = Event(item)
     }
 }

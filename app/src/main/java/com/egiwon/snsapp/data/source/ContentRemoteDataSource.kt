@@ -4,6 +4,7 @@ import com.egiwon.snsapp.data.content.ContentDataSource
 import com.egiwon.snsapp.data.content.ContentService
 import com.egiwon.snsapp.data.entity.CardContentResponse
 import com.egiwon.snsapp.data.entity.HomeContentResponse
+import com.egiwon.snsapp.data.entity.UserDetailResponse
 import io.reactivex.Single
 import javax.inject.Inject
 
@@ -16,5 +17,9 @@ class ContentRemoteDataSource @Inject constructor(
 
     override fun getImageFeed(page: Int, perPage: Int): Single<CardContentResponse> =
         contentService.getImageFeed(page, perPage)
+
+    override fun getUserDetailInfo(id: Int): Single<UserDetailResponse> =
+        contentService.getUserDetail(id.toString())
+
 
 }

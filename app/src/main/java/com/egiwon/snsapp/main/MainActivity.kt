@@ -11,8 +11,10 @@ import com.egiwon.snsapp.R
 import com.egiwon.snsapp.auth.SignUpLoginFragment
 import com.egiwon.snsapp.base.BaseActivity
 import com.egiwon.snsapp.databinding.ActivityMainBinding
+import com.egiwon.snsapp.detail.UserDetailFragment
 import com.egiwon.snsapp.ext.setOnSingleClick
 import com.egiwon.snsapp.tab.TabFragment
+import com.egiwon.snsapp.tab.home.model.User
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -48,6 +50,12 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
             if (it.userId > 0) {
                 onPopBackStack()
                 binding.setButtonVisibleLogin()
+            }
+        })
+
+        viewModel.selectedItem.observe(this, EventObserver {
+            if (it is User) {
+                showFragment(UserDetailFragment.newInstance(it.id), true)
             }
         })
     }

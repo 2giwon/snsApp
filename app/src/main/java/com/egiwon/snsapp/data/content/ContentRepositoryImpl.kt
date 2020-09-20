@@ -3,7 +3,9 @@ package com.egiwon.snsapp.data.content
 import androidx.lifecycle.LiveData
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
+import com.egiwon.snsapp.data.ContentRepository
 import com.egiwon.snsapp.data.entity.HomeContentResponse
+import com.egiwon.snsapp.data.entity.UserDetailResponse
 import com.egiwon.snsapp.data.paging.CardDataSourceFactory
 import com.egiwon.snsapp.tab.imagefeed.model.Card
 import io.reactivex.Completable
@@ -43,6 +45,9 @@ class ContentRepositoryImpl @Inject constructor(
             }
             .build()
     }
+
+    override fun getUserDetailInfo(id: Int): Single<UserDetailResponse> =
+        contentDataSource.getUserDetailInfo(id)
 
 
 }

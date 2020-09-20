@@ -8,7 +8,7 @@ import com.egiwon.snsapp.R
 import com.egiwon.snsapp.auth.model.UserAuth
 import com.egiwon.snsapp.auth.model.mapToUserAuth
 import com.egiwon.snsapp.base.BaseViewModel
-import com.egiwon.snsapp.data.auth.AuthRepository
+import com.egiwon.snsapp.data.AuthRepository
 import com.egiwon.snsapp.data.auth.model.AuthRequestData
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
