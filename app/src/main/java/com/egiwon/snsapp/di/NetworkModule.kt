@@ -1,6 +1,7 @@
 package com.egiwon.snsapp.di
 
 import com.egiwon.snsapp.BuildConfig
+import com.egiwon.snsapp.data.ContentService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -55,6 +56,10 @@ class NetworkModule {
             .addConverterFactory(converterFactory)
             .build()
 
+    @Provides
+    @Singleton
+    fun providesContentService(retrofit: Retrofit): ContentService =
+        retrofit.create(ContentService::class.java)
 
     companion object {
         private const val BASE_URL = "http://35.200.92.60:11000/"
