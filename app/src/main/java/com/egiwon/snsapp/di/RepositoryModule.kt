@@ -1,8 +1,11 @@
 package com.egiwon.snsapp.di
 
-import com.egiwon.snsapp.data.ContentDataSource
-import com.egiwon.snsapp.data.ContentRepository
-import com.egiwon.snsapp.data.ContentRepositoryImpl
+import com.egiwon.snsapp.data.auth.AuthDataSource
+import com.egiwon.snsapp.data.auth.AuthRepository
+import com.egiwon.snsapp.data.auth.AuthRepositoryImpl
+import com.egiwon.snsapp.data.content.ContentDataSource
+import com.egiwon.snsapp.data.content.ContentRepository
+import com.egiwon.snsapp.data.content.ContentRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,4 +21,8 @@ class RepositoryModule {
     fun providesContentRepository(contentDataSource: ContentDataSource): ContentRepository =
         ContentRepositoryImpl(contentDataSource)
 
+    @Provides
+    @Singleton
+    fun providesAuthRepository(authDataSource: AuthDataSource): AuthRepository =
+        AuthRepositoryImpl(authDataSource)
 }

@@ -8,5 +8,7 @@ data class HomeContentResponse(
     @SerializedName("popular_users")
     val popularUsers: List<UserItem>,
     @SerializedName("ok")
-    val ok: Boolean
+    val ok: Boolean,
+    @SerializedName("msg")
+    val msg: String
 )

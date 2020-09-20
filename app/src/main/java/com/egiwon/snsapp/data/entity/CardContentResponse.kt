@@ -6,5 +6,7 @@ data class CardContentResponse(
     @SerializedName("ok")
     val ok: Boolean,
     @SerializedName("cards")
-    val cards: List<CardItem>
+    val cards: List<CardItem>,
+    @SerializedName("msg")
+    val msg: String
 )

@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.egiwon.snsapp.R
 import com.egiwon.snsapp.base.BaseViewModel
-import com.egiwon.snsapp.data.ContentRepository
+import com.egiwon.snsapp.data.content.ContentRepository
 import com.egiwon.snsapp.data.entity.CardItem
 import com.egiwon.snsapp.data.entity.UserItem
 import com.egiwon.snsapp.tab.home.model.HomeContent
@@ -32,7 +32,6 @@ class HomeViewModel @ViewModelInject constructor(
         repository.getHomeContent()
             .subscribeOn(Schedulers.io())
             .map {
-                if (!it.ok) Throwable()
                 HomeContent(
                     it.popularCards.map(CardItem::mapToCard),
                     it.popularUsers.map(UserItem::mapToUser)

@@ -1,4 +1,4 @@
-package com.egiwon.snsapp.data
+package com.egiwon.snsapp.data.content
 
 import androidx.lifecycle.LiveData
 import androidx.paging.LivePagedListBuilder

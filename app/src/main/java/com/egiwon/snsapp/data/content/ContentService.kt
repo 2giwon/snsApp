@@ -1,4 +1,4 @@
-package com.egiwon.snsapp.data
+package com.egiwon.snsapp.data.content
 
 import com.egiwon.snsapp.data.entity.CardContentResponse
 import com.egiwon.snsapp.data.entity.HomeContentResponse

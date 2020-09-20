@@ -1,7 +1,8 @@
 package com.egiwon.snsapp.di
 
 import com.egiwon.snsapp.BuildConfig
-import com.egiwon.snsapp.data.ContentService
+import com.egiwon.snsapp.data.auth.AuthService
+import com.egiwon.snsapp.data.content.ContentService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -60,6 +61,11 @@ class NetworkModule {
     @Singleton
     fun providesContentService(retrofit: Retrofit): ContentService =
         retrofit.create(ContentService::class.java)
+
+    @Provides
+    @Singleton
+    fun providesAuthService(retrofit: Retrofit): AuthService =
+        retrofit.create(AuthService::class.java)
 
     companion object {
         private const val BASE_URL = "http://35.200.92.60:11000/"

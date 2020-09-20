@@ -43,11 +43,11 @@
                     android:layout_height="wrap_content"
                     android:text="@string/button_sign_up_text"
                     android:onClick="@{() -> vm.requestShowSignUpFragment()}"
-                    app:layout_constraintEnd_toStartOf="@id/btn_logout"
+                    app:layout_constraintEnd_toStartOf="@id/button_logout"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/btn_logout"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button_logout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/button_logout_text"

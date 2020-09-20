@@ -1,7 +1,7 @@
 package com.egiwon.snsapp.data.source
 
-import com.egiwon.snsapp.data.ContentDataSource
-import com.egiwon.snsapp.data.ContentService
+import com.egiwon.snsapp.data.content.ContentDataSource
+import com.egiwon.snsapp.data.content.ContentService
 import com.egiwon.snsapp.data.entity.CardContentResponse
 import com.egiwon.snsapp.data.entity.HomeContentResponse
 import io.reactivex.Single
@@ -13,13 +13,6 @@ class ContentRemoteDataSource @Inject constructor(
 
     override fun getHomeContents(): Single<HomeContentResponse> =
         contentService.getHomeContent()
-            .onErrorReturn {
-                HomeContentResponse(
-                    ok = false,
-                    popularCards = emptyList(),
-                    popularUsers = emptyList()
-                )
-            }
 
     override fun getImageFeed(page: Int, perPage: Int): Single<CardContentResponse> =
         contentService.getImageFeed(page, perPage)

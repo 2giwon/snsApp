@@ -3,7 +3,7 @@ package com.egiwon.snsapp.data.paging
 import androidx.paging.DataSource
 import androidx.paging.PageKeyedDataSource
 import androidx.paging.PagedList
-import com.egiwon.snsapp.data.ContentDataSource
+import com.egiwon.snsapp.data.content.ContentDataSource
 import com.egiwon.snsapp.data.entity.CardItem
 import com.egiwon.snsapp.tab.imagefeed.model.Card
 import com.egiwon.snsapp.tab.imagefeed.model.mapToCard
@@ -39,7 +39,7 @@ class CardDataSourceFactory(
                 .subscribeOn(Schedulers.io())
                 .subscribeBy(
                     onSuccess = {
-                        if (!it.ok) onFailure(Throwable())
+                        if (!it.ok) onFailure(Throwable(it.msg))
                         val result = it.cards.map(CardItem::mapToCard)
                         callback.onResult(result, 0, START_PAGE + 1)
                         onSuccess()
@@ -58,7 +58,7 @@ class CardDataSourceFactory(
                 .subscribeOn(Schedulers.io())
                 .subscribeBy(
                     onSuccess = {
-                        if (!it.ok) onFailure(Throwable())
+                        if (!it.ok) onFailure(Throwable(it.msg))
                         val result = it.cards.map(CardItem::mapToCard)
                         callback.onResult(result, params.key + 1)
                         onSuccess()
