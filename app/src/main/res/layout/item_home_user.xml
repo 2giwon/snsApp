@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.egiwon.snsapp.tab.home.HomeViewModel" />
+
+        <variable
+            name="user"
+            type="com.egiwon.snsapp.tab.home.model.User" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="96dp"
+        android:layout_height="96dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.nickname}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="aaaa" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_user_introduction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.introduction}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_user_name"
+            tools:text="a소개합니다" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
