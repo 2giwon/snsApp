@@ -9,4 +9,7 @@
     <string name="home_user_title">인기 유저: 유저를 클릭해보세요.</string>
     <string name="error_load_home_content">인기 데이터를 불러오지 못했습니다. 다시 시도해주세요.</string>
     <string name="error_load_card">카드 데이터를 불러오지 못했습니다.</string>
+    <string name="edittext_hint_nickname">닉네임</string>
+    <string name="edittext_hint_introduction">소개</string>
+    <string name="edittext_hint_password">비밀번호</string>
 </resources>

@@ -21,6 +21,8 @@
             android:id="@+id/rv_image_feed"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:scrollbarSize="10dp"
+            android:scrollbars="vertical"
             app:layoutManager="LinearLayoutManager"
             bind:replacePagedItems="@{vm.resultCardList}"
             tools:listitem="@layout/item_card" />

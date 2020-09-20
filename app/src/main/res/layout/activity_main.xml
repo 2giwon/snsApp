@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.egiwon.snsapp.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,6 +33,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/button_login_text"
+                    android:onClick="@{() -> vm.requestShowLoginFragment()}"
                     app:layout_constraintEnd_toStartOf="@id/button_sign_up"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,6 +42,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/button_sign_up_text"
+                    android:onClick="@{() -> vm.requestShowSignUpFragment()}"
                     app:layout_constraintEnd_toStartOf="@id/btn_logout"
                     app:layout_constraintTop_toTopOf="parent" />
 
