@@ -44,7 +44,6 @@ class CardDetailFragment : BaseFragment<FragmentCardDetailBinding, CardDetailVie
 
     companion object {
         private const val CARD_ID = "card_id"
-        private const val IS_LOADED = "is_loaded"
 
         fun newInstance(id: Int): CardDetailFragment {
             val args = bundleOf(CARD_ID to id)

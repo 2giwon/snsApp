@@ -16,6 +16,4 @@ abstract class BaseViewModel : ViewModel() {
         compositeDisposable.clear()
         super.onCleared()
     }
-
-    open fun onClick(model: Any?) {}
 }
