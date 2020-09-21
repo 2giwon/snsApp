@@ -5,7 +5,6 @@ import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.egiwon.snsapp.BR
-import com.egiwon.snsapp.EventObserver
 import com.egiwon.snsapp.R
 import com.egiwon.snsapp.base.BaseAdapter
 import com.egiwon.snsapp.base.BaseFragment
@@ -33,21 +32,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
         }
 
         viewModel.getHomeContents()
-        setupObserve()
-    }
-
-    override fun setupObserve() {
-        super.setupObserve()
-        viewModel.selectedItem.observe(viewLifecycleOwner, EventObserver {
-            sharedViewModel.setSelectedItem(it)
-        })
     }
 
     private fun FragmentHomeBinding.initAdapter() {
         rvPopularCards.adapter = object : BaseAdapter<Card>(
             R.layout.item_home_card,
             BR.item,
-            mapOf(BR.vm to viewModel)
+            mapOf(BR.sharedvm to sharedViewModel)
         ) {}
 
         rvPopularCards.setHasFixedSize(true)
@@ -55,7 +46,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
         rvPopularUsers.adapter = object : BaseAdapter<User>(
             R.layout.item_home_user,
             BR.user,
-            mapOf(BR.vm to viewModel)
+            mapOf(BR.sharedvm to sharedViewModel)
         ) {}
 
         rvPopularUsers.setHasFixedSize(true)

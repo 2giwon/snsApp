@@ -9,6 +9,10 @@
         <variable
             name="item"
             type="com.egiwon.snsapp.tab.imagefeed.model.Card" />
+
+        <variable
+            name="sharedvm"
+            type="com.egiwon.snsapp.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,6 +28,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             bind:loadImageUrl="@{item.imageUrl}"
+            bind:onSingleClick="@{() -> sharedvm.setSelectedItem(item)}"
             tools:src="@tools:sample/avatars" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

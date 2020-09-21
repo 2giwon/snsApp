@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
-            name="vm"
-            type="com.egiwon.snsapp.tab.home.HomeViewModel" />
+            name="sharedvm"
+            type="com.egiwon.snsapp.main.MainViewModel" />
 
         <variable
             name="user"
@@ -17,7 +18,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="96dp"
         android:layout_height="96dp"
-        app:onSingleClick="@{() -> vm.onClick(user)}">
+        bind:onSingleClick="@{() -> sharedvm.setSelectedItem(user)}">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_user_name"

@@ -7,6 +7,10 @@
     <data>
 
         <variable
+            name="sharedvm"
+            type="com.egiwon.snsapp.main.MainViewModel" />
+
+        <variable
             name="card"
             type="com.egiwon.snsapp.tab.imagefeed.model.Card" />
     </data>
@@ -21,6 +25,7 @@
             android:layout_height="0dp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
+            android:onClick="@{() -> sharedvm.setSelectedItem(card)}"
             app:layout_constraintDimensionRatio="H,1.5:1"
             app:layout_constraintTop_toTopOf="parent"
             bind:loadImageUrl="@{card.imageUrl}"
