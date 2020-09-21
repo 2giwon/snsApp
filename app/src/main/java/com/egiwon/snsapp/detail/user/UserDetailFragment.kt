@@ -1,4 +1,4 @@
-package com.egiwon.snsapp.detail
+package com.egiwon.snsapp.detail.user
 
 import android.os.Bundle
 import android.view.View

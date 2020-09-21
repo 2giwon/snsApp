@@ -1,4 +1,4 @@
-package com.egiwon.snsapp.detail
+package com.egiwon.snsapp.detail.user
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
