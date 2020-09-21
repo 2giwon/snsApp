@@ -1,6 +1,7 @@
 package com.egiwon.snsapp.data.content
 
 import com.egiwon.snsapp.data.entity.CardContentResponse
+import com.egiwon.snsapp.data.entity.CardDetailResponse
 import com.egiwon.snsapp.data.entity.HomeContentResponse
 import com.egiwon.snsapp.data.entity.UserDetailResponse
 import io.reactivex.Single
@@ -21,4 +22,7 @@ interface ContentService {
 
     @GET("users/{id}")
     fun getUserDetail(@Path("id") id: String): Single<UserDetailResponse>
+
+    @GET("cards/{id}")
+    fun getCardDetail(@Path("id") id: String): Single<CardDetailResponse>
 }
