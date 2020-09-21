@@ -39,8 +39,6 @@ class SignUpLoginFragment : BaseFragment<FragmentSignupBinding, AuthViewModel>(
                 )
             }
         }
-
-        setupObserve()
     }
 
     override fun setupObserve() {
