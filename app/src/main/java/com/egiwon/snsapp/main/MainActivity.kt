@@ -35,10 +35,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
         }
 
         showFragment(TabFragment())
+        setupObserve()
     }
 
-    override fun setupObserve() {
-        super.setupObserve()
+    private fun setupObserve() {
+
         viewModel.showSignUp.observe(this, EventObserver {
             showFragment(SignUpLoginFragment.newInstance(false), true)
         })

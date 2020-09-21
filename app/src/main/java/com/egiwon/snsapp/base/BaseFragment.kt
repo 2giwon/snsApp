@@ -42,7 +42,7 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
         Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
     }
 
-    protected fun showToast(@StringRes textResId: Int) {
+    private fun showToast(@StringRes textResId: Int) {
         showToast(getString(textResId))
     }
 
