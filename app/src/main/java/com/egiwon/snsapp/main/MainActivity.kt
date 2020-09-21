@@ -11,10 +11,12 @@ import com.egiwon.snsapp.R
 import com.egiwon.snsapp.auth.SignUpLoginFragment
 import com.egiwon.snsapp.base.BaseActivity
 import com.egiwon.snsapp.databinding.ActivityMainBinding
-import com.egiwon.snsapp.detail.UserDetailFragment
+import com.egiwon.snsapp.detail.card.CardDetailFragment
+import com.egiwon.snsapp.detail.user.UserDetailFragment
 import com.egiwon.snsapp.ext.setOnSingleClick
 import com.egiwon.snsapp.tab.TabFragment
 import com.egiwon.snsapp.tab.home.model.User
+import com.egiwon.snsapp.tab.imagefeed.model.Card
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,7 +35,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
         }
 
         showFragment(TabFragment())
-        setupObserve()
     }
 
     override fun setupObserve() {
@@ -55,7 +56,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
 
         viewModel.selectedItem.observe(this, EventObserver {
             if (it is User) {
+                if (it.id < 0) return@EventObserver
                 showFragment(UserDetailFragment.newInstance(it.id), true)
+            } else if (it is Card) {
+                if (it.id < 0) return@EventObserver
+                showFragment(CardDetailFragment.newInstance(it.id), true)
             }
         })
     }
@@ -75,7 +80,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
     private fun showFragment(fragment: Fragment, isAddStack: Boolean = false) {
         supportFragmentManager.commit(allowStateLoss = true) {
             if (isAddStack) addToBackStack(Fragment::class.java.name)
-            replace(R.id.fragment_holder, fragment, Fragment::class.java.name)
+            add(R.id.fragment_holder, fragment, Fragment::class.java.name)
         }
     }
 

@@ -7,12 +7,13 @@
 
         <variable
             name="vm"
-            type="com.egiwon.snsapp.detail.UserDetailViewModel" />
+            type="com.egiwon.snsapp.detail.user.UserDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_nickname"
