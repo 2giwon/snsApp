@@ -31,9 +31,12 @@ fun RecyclerView.replaceItem(items: List<Any>?) {
 }
 
 @BindingAdapter("bind:loadImageUrl")
-fun ImageView.loadImageUrlByGlide(imageUrl: String) {
-    Glide.with(this)
-        .load(imageUrl)
-        .into(this)
+fun ImageView.loadImageUrlByGlide(imageUrl: String?) {
+    if (imageUrl != null) {
+        Glide.with(this)
+            .load(imageUrl)
+            .into(this)
+    }
+
 }
 
