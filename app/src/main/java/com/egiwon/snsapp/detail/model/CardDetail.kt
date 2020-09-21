@@ -10,6 +10,10 @@ import com.egiwon.snsapp.tab.imagefeed.model.mapToCard
 data class CardDetail(
     val card: Card = Card(),
     val user: User = User(),
+    val recommendCards: RecommendCards = RecommendCards(emptyList())
+)
+
+data class RecommendCards(
     val recommendCards: List<Card> = emptyList()
 )
 
@@ -17,5 +21,5 @@ fun CardDetailResponse.mapToCardDetail(): CardDetail =
     CardDetail(
         card = card.mapToCard(),
         user = user.mapToUser(),
-        recommendCards = recommendCards.map(CardItem::mapToCard)
+        recommendCards = RecommendCards(recommendCards.map(CardItem::mapToCard))
     )

@@ -5,6 +5,7 @@ import androidx.databinding.BindingAdapter
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.egiwon.snsapp.base.BaseAdapter
 import com.egiwon.snsapp.base.BasePagedAdapter
 import com.egiwon.snsapp.tab.imagefeed.model.Card
@@ -33,8 +34,10 @@ fun RecyclerView.replaceItem(items: List<Any>?) {
 @BindingAdapter("bind:loadImageUrl")
 fun ImageView.loadImageUrlByGlide(imageUrl: String?) {
     if (imageUrl != null) {
+
         Glide.with(this)
             .load(imageUrl)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(this)
     }
 

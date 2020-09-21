@@ -27,6 +27,9 @@ class CardDetailViewModel @ViewModelInject constructor(
     private val _recommendCards = MutableLiveData<List<Card>>()
     val recommendCards: LiveData<List<Card>> get() = _recommendCards
 
+    private val _detailItems = MutableLiveData<List<Any>>()
+    val detailItems: LiveData<List<Any>> get() = _detailItems
+
     fun getCardDetailInfo(id: Int) {
         repository.getCardDetailInfo(id)
             .subscribeOn(Schedulers.io())
@@ -34,9 +37,15 @@ class CardDetailViewModel @ViewModelInject constructor(
             .subscribeBy(
                 onSuccess = {
                     val cardDetail = it.mapToCardDetail()
-                    _user.value = cardDetail.user
-                    _card.value = cardDetail.card
-                    _recommendCards.value = cardDetail.recommendCards
+                    val detailItems = mutableListOf<Any>()
+                    detailItems.add(cardDetail.card)
+                    detailItems.add(cardDetail.user)
+                    detailItems.add(cardDetail.recommendCards)
+
+                    _detailItems.value = detailItems
+//                    _user.value = cardDetail.user
+//                    _card.value = cardDetail.card
+//                    _recommendCards.value = cardDetail.recommendCards
                 },
                 onError = {
                     toastMessageMutableLiveData.value = R.string.error_load_card_detail
